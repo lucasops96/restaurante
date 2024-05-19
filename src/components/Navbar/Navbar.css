@@ -1,0 +1,15 @@
+.navbar {
+    width: 100%;
+    z-index: 999;
+    background-color: #1976d2; /* Cor de fundo da Navbar */
+    color: white; /* Cor do texto da Navbar */
+  }
+  
+  .navbar-title {
+    flex-grow: 1;
+  }
+  
+  .navbar-button {
+    margin-left: 10px; /* Espaçamento entre o título e o botão */
+  }
+  

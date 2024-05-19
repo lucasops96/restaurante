@@ -1,0 +1,17 @@
+.sidebar {
+  width: 250px;
+  position: fixed;
+  height: 100%;
+  background-color: #f8f9fa;
+  z-index: 1000;
+  padding-top: 64px; /* Ajuste para evitar sobreposição com a Navbar */
+}
+
+.sidebar-item {
+  padding: 10px;
+}
+
+.sidebar-item:hover {
+  background-color: #ced4da;
+  cursor: pointer;
+}

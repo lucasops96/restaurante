@@ -1,0 +1,52 @@
+/* .aluno-table {
+    width: 100%;
+  }
+  
+  .aluno-table th,
+  .aluno-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; 
+  }
+  
+  .aluno-table th {
+    background-color: #f2f2f2; 
+    font-weight: bold; 
+  }
+  
+  .aluno-table tbody tr:hover {
+    background-color: #f2f2f2; 
+    cursor: pointer; 
+  }
+  
+  .aluno-table td.actions {
+    white-space: nowrap; 
+  }
+   */
+
+   .aluno-table {
+    width: 100%;
+    border-collapse: collapse; /* Mesclar bordas das células */
+  }
+  
+  .aluno-table th,
+  .aluno-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .aluno-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .aluno-table tbody tr:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
+  }
+  
+  .aluno-table td.actions button {
+    margin-right: 5px; /* Espaçamento entre os botões de ação */
+  }
+  

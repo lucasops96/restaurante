@@ -1,0 +1,28 @@
+
+
+   .endereco-table {
+    width: 100%;
+    border-collapse: collapse; /* Mesclar bordas das células */
+  }
+  
+  .endereco-table th,
+  .endereco-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .endereco-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .endereco-table tbody tr:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
+  }
+  
+  .endereco-table td.actions button {
+    margin-right: 5px; /* Espaçamento entre os botões de ação */
+  }
+  
