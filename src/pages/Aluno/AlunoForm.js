@@ -14,20 +14,25 @@ function AlunoForm() {
   const [curso, setCurso] = useState('');
 
   useEffect(() => {
-    if (id) {
-      // Se tiver um id, buscar os dados do aluno pelo id
-      axios.get(`https://demo6292057.mockable.io/alunos/${id}`)
-        .then(response => {
+    const fetchAluno = async () => {
+      if (id) {
+        try {
+          const response = await axios.get(`https://demo6292057.mockable.io/alunos/${id}`);
           const aluno = response.data;
           setMatricula(aluno.matricula);
           setNome(aluno.nome);
           setCpf(aluno.cpf);
           setEndereco(aluno.idEndereco);
           setCurso(aluno.curso);
-        })
-        .catch(error => console.error('Erro ao buscar o aluno:', error));
-    }
+        } catch (error) {
+          console.error('Erro ao buscar o aluno:', error);
+        }
+      }
+    };
+  
+    fetchAluno();
   }, [id]);
+  
 
   const handleSubmit = async (event) => {
     event.preventDefault();

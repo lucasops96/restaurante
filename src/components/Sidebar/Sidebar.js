@@ -14,6 +14,12 @@ function Sidebar() {
           </ListItemIcon>
           <ListItemText primary="Home" />
         </ListItem>
+        <ListItem button component={Link} to="/pessoas-responsaveis">
+          <ListItemIcon>
+            <Person />
+          </ListItemIcon>
+          <ListItemText primary="Pessoas Responsáveis" />
+        </ListItem>
         <ListItem button component={Link} to="/alunos">
           <ListItemIcon>
             <Person />

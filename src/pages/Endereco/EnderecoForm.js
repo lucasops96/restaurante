@@ -19,19 +19,25 @@ function EnderecoForm() {
   const [pais, setPais] = useState('');
 
   useEffect(() => {
-    if (id) {
-      axios.get(`https://demo6292057.mockable.io/enderecos/1`)
-        .then(response => {
-          const endereco = response.data;
+    const fetchEndereco = async () =>{
+      if (id) {
+       try {
+        const response = await axios.get(`https://demo6292057.mockable.io/enderecos/1`)
+        const endereco = response.data;
           setRua(endereco.rua);
           setNumero(endereco.numero);
           setCep(endereco.cep);
           setCidade(endereco.cidade);
           setEstado(endereco.estado);
           setPais(endereco.pais);
-        })
-        .catch(error => console.error('Erro ao buscar o endereço:', error));
-    }
+       } catch (error) {
+          console.error('Erro ao buscar o endereço:', error)
+       }
+      }
+
+    };
+    
+    fetchEndereco();
   }, [id]);
 
   const handleSubmit = async (event) => {

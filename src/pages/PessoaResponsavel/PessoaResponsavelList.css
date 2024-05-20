@@ -1,0 +1,28 @@
+
+
+.pessoa-table {
+    width: 100%;
+    border-collapse: collapse; /* Mesclar bordas das células */
+  }
+  
+  .pessoa-table th,
+  .pessoa-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .pessoa-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .pessoa-table tbody tr:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
+  }
+  
+  .pessoa-table td.actions button {
+    margin-right: 5px; /* Espaçamento entre os botões de ação */
+  }
+  

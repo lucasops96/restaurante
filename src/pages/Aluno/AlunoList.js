@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './AlunoList.css'; // Importar o arquivo CSS
 
 function AlunoList() {
     const [alunos, setAlunos] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -19,6 +20,10 @@ function AlunoList() {
 
         fetchData();
     }, []);
+
+    const handleRowClick = (aluno) => {
+      navigate(`/alunos/${aluno.id}/detalhes`, { state: { aluno } });
+    };
 
   return (
     <div>
@@ -46,7 +51,7 @@ function AlunoList() {
           </TableHead>
           <TableBody>
             {alunos.map((aluno) => (
-              <TableRow key={aluno.id}>
+              <TableRow key={aluno.id} onClick={() => handleRowClick(aluno)} style={{ cursor: 'pointer' }}>
                 <TableCell>{aluno.id}</TableCell>
                 <TableCell>{aluno.matricula}</TableCell>
                 <TableCell>{aluno.nome}</TableCell>
@@ -54,8 +59,8 @@ function AlunoList() {
                 <TableCell>{aluno.idEndereco}</TableCell>
                 <TableCell>{aluno.curso}</TableCell>
                 <TableCell className="actions">
-                  <Button component={Link} to={`/alunos/${aluno.id}`}>Editar</Button>
-                  <Button component={Link} to={`/alunos/${aluno.id}/excluir/${aluno.nome}`}>Excluir</Button>
+                  <Button component={Link} to={`/alunos/${aluno.id}`} onClick={(e) => e.stopPropagation()}>Editar</Button>
+                  <Button component={Link} to={`/alunos/${aluno.id}/excluir/${aluno.nome}`} onClick={(e) => e.stopPropagation()}>Excluir</Button>
                 </TableCell>
               </TableRow>
             ))}

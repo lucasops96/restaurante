@@ -6,10 +6,15 @@ import Sidebar from './components/Sidebar/Sidebar';
 import AlunoList from './pages/Aluno/AlunoList';
 import AlunoForm from './pages/Aluno/AlunoForm';
 import ExcluirAluno from './pages/Aluno/ExcluirAluno';
+import AlunoDetails from './pages/Aluno/AlunoDetails';
 
 import EnderecoList from './pages/Endereco/EnderecoList';
 import EnderecoForm from './pages/Endereco/EnderecoForm';
 import ExcluirEndereco from './pages/Endereco/ExcluirEndereco';
+
+import PessoaResponsavelList from './pages/PessoaResponsavel/PessoaResponsavelList';
+import PessoaResponsavelForm from './pages/PessoaResponsavel/PessoaResponsavelForm';
+import ExcluirPessoaResponsavel from './pages/PessoaResponsavel/ExcluirPessoaResponsavel';
 
 import './App.css';
 
@@ -32,11 +37,17 @@ function App() {
             <Route path="/alunos/novo" element={<AlunoForm />} />
             <Route path="/alunos/:id" element={<AlunoForm />} />
             <Route path="/alunos/:id/excluir/:nome" element={<ExcluirAluno />} />
+            <Route path="/alunos/:id/detalhes" element={<AlunoDetails />} />
 
             <Route path="/enderecos" element={<EnderecoList />} />
             <Route path="/enderecos/novo" element={<EnderecoForm />} />
             <Route path="/enderecos/:id" element={<EnderecoForm />} />
             <Route path="/enderecos/:id/excluir/:rua" element={<ExcluirEndereco />} /> 
+
+            <Route path='/pessoas-responsaveis' element={<PessoaResponsavelList />} />
+            <Route path='/pessoas-responsaveis/novo' element={<PessoaResponsavelForm />} />
+            <Route path='/pessoas-responsaveis/:id' element={<PessoaResponsavelForm />} />
+            <Route path='/pessoas-responsaveis/:id/excluir/:nome' element={<ExcluirPessoaResponsavel />} />
             
           </Routes>
         </div>
