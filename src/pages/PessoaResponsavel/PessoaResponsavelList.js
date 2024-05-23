@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link , useNavigate} from 'react-router-dom';
 import './PessoaResponsavelList.css'
 
 function PessoaResponsavelList(){
     const [pessoasResponsaveis,setPessoasResponsaveis] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(()=>{
         const fetchData = async ()=>{
@@ -19,6 +20,10 @@ function PessoaResponsavelList(){
 
         fetchData();
     }, []);
+
+    const handleRowClick = (pessoaResponsavel)=>{
+        navigate(`/pessoas-responsaveis/${pessoaResponsavel.id}/detalhes`,{ state: { pessoaResponsavel } });
+    }; 
 
     return(
         <div>
@@ -45,15 +50,26 @@ function PessoaResponsavelList(){
                     </TableHead>
                     <TableBody>
                         {pessoasResponsaveis.map((pessoaResponsavel) => (
-                        <TableRow key={pessoaResponsavel.id}>
+                        <TableRow key={pessoaResponsavel.id} 
+                        onClick={()=> handleRowClick(pessoaResponsavel)} 
+                        style={{ cursor: 'pointer' }}
+                        >
                             <TableCell>{pessoaResponsavel.id}</TableCell>
                             <TableCell>{pessoaResponsavel.nome}</TableCell>
                             <TableCell>{pessoaResponsavel.cpf}</TableCell>
                             <TableCell>{pessoaResponsavel.telefone}</TableCell>
                             <TableCell>{pessoaResponsavel.email}</TableCell>
                             <TableCell className="actions">
-                            <Button component={Link} to={`/pessoas-responsaveis/${pessoaResponsavel.id}`}>Editar</Button>
-                            <Button component={Link} to={`/pessoas-responsaveis/${pessoaResponsavel.id}/excluir/${pessoaResponsavel.nome}`}>Excluir</Button>
+                            <Button 
+                            component={Link} 
+                            to={`/pessoas-responsaveis/${pessoaResponsavel.id}`}
+                            onClick={(e) => e.stopPropagation()}
+                            >Editar</Button>
+                            <Button 
+                            component={Link} 
+                            to={`/pessoas-responsaveis/${pessoaResponsavel.id}/excluir/${pessoaResponsavel.nome}`}
+                            onClick={(e) => e.stopPropagation()}
+                            >Excluir</Button>
                             </TableCell>
                         </TableRow>
                         ))}

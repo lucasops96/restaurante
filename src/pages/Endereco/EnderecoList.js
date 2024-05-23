@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './EnderecoList.css';
 
 function EnderecoList() {
   const [enderecos, setEnderecos] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,6 +20,10 @@ function EnderecoList() {
 
     fetchData();
   }, []);
+
+  const handleRowClick = (endereco)=>{
+    navigate(`/enderecos/${endereco.id}/detalhes`,{ state: { endereco } });
+  };
 
   return (
     <div>
@@ -47,7 +52,7 @@ function EnderecoList() {
           </TableHead>
           <TableBody>
             {enderecos.map((endereco) => (
-              <TableRow key={endereco.id}>
+              <TableRow key={endereco.id} onClick={() => handleRowClick(endereco)} style={{ cursor: 'pointer' }}>
                 <TableCell>{endereco.id}</TableCell>
                 <TableCell>{endereco.rua}</TableCell>
                 <TableCell>{endereco.numero}</TableCell>
@@ -56,8 +61,16 @@ function EnderecoList() {
                 <TableCell>{endereco.estado}</TableCell>
                 <TableCell>{endereco.pais}</TableCell>
                 <TableCell className="actions">
-                  <Button component={Link} to={`/enderecos/${endereco.id}`}>Editar</Button>
-                  <Button component={Link} to={`/enderecos/${endereco.id}/excluir/${endereco.rua}`}>Excluir</Button>
+                  <Button 
+                  component={Link} 
+                  to={`/enderecos/${endereco.id}`}
+                  onClick={(e) => e.stopPropagation()}
+                  >Editar</Button>
+                  <Button 
+                  component={Link} 
+                  to={`/enderecos/${endereco.id}/excluir/${endereco.rua}`}
+                  onClick={(e) => e.stopPropagation()}
+                  >Excluir</Button>
                 </TableCell>
               </TableRow>
             ))}
