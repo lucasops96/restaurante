@@ -92,8 +92,10 @@ function RestauranteForm() {
     try {
       if (id) {
         await axios.put(`https://demo6292057.mockable.io/restaurantes/${id}`, restaurante);
+        console.log('Restaurante editado',restaurante)
       } else {
         await axios.post('https://demo6292057.mockable.io/restaurantes', restaurante);
+        console.log('Restaurante adicionado',restaurante)
       }
       navigate('/restaurantes');
     } catch (error) {

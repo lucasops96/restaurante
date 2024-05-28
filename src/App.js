@@ -21,6 +21,7 @@ import PessoaResponsavelDetails from './pages/PessoaResponsavel/PessoaResponsave
 import RestauranteList from './pages/Restaurante/RestauranteList';
 import RestauranteDetails from './pages/Restaurante/RestauranteDetails';
 import RestauranteForm from './pages/Restaurante/RestauranteForm';
+import ExcluirRestaurante from './pages/Restaurante/ExcluirRestaurante';
 
 import './App.css';
 
@@ -42,8 +43,8 @@ function App() {
             <Route path='/' element={<RestauranteList />} />
             <Route path="/restaurantes/novo" element={<RestauranteForm />} />
             <Route path="/restaurantes/:id" element={<RestauranteForm />} />
-            <Route path="/restaurantes/:id/detalhes" element={<RestauranteDetails />} /> 
-
+            <Route path="/restaurantes/:id/detalhes" element={<RestauranteDetails />} />
+            <Route path="/restaurantes/:id/excluir/:nome" element={<ExcluirRestaurante />} />
 
             <Route path="/alunos" element={<AlunoList />} />
             <Route path="/alunos/novo" element={<AlunoForm />} />
