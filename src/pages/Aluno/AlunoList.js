@@ -56,7 +56,7 @@ function AlunoList() {
                 <TableCell>{aluno.matricula}</TableCell>
                 <TableCell>{aluno.nome}</TableCell>
                 <TableCell>{aluno.cpf}</TableCell>
-                <TableCell>{aluno.idEndereco}</TableCell>
+                <TableCell>{aluno.endereco.id} - {aluno.endereco.rua}</TableCell>
                 <TableCell>{aluno.curso}</TableCell>
                 <TableCell className="actions">
                   <Button component={Link} to={`/alunos/${aluno.id}`} onClick={(e) => e.stopPropagation()}>Editar</Button>

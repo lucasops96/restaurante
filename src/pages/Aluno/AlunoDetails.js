@@ -36,7 +36,7 @@ function AlunoDetails() {
           <ListItemText primary="CPF" secondary={aluno.cpf} />
         </ListItem>
         <ListItem>
-          <ListItemText primary="Endereço" secondary={aluno.idEndereco} />
+          <ListItemText primary="Endereço" secondary={`${aluno.endereco.rua}, ${aluno.endereco.numero} - ${aluno.endereco.cidade}, ${aluno.endereco.estado}, ${aluno.endereco.pais}`} />
         </ListItem>
         <ListItem>
           <ListItemText primary="Curso" secondary={aluno.curso} />
