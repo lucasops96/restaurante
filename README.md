@@ -5,35 +5,55 @@ npm install
 npm start 
 
 # Especificação do projeto da disciplina de PROG WEB.
-● Restaurante
-○ Id: Integer (Auto-increment)
-○ Nome do Restaurante: String(255);
-○ Endereco: Endereco;
-■ Id: Integer (Auto-increment)
-■ Rua: String (255);
-■ Número: String (8);
-■ CEP: String(14);
-■ Cidade: String (50);
-■ Estado: String (50);
-■ País: String (50);
-○ Pessoa Responsável: Pessoa;
-■ Id: Integer (Auto-increment)
-■ Nome: String(255);
-■ CPF: String(15);
-■ Telefone_whatsapp: String(255);
-■ Email: String(255);
-○ Capacidade de Refeições: Integer;
-○ Horário de atendimento do café da manhã: String(10);
-○ Horário de atendimento do almoço: String(10);
-○ Horário de atendimento do jantar: String(10);
-○ Dias de funcionamento: String(255);
-● Aluno
-○ Id: Integer (Auto-increment)
-○ Matrícula: Integer;
-○ Nome completo: String (255);
-○ CPF: String (13);
-○ Endereço: Endereco;
-○ Curso: String (255);
+## Estrutura do Banco de Dados
+
+### Restaurante
+```json
+{
+  "id": 1,
+    "nome": "REST 1",
+    "endereco": {
+        "id": 1,
+        "rua": "Rua Minds",
+        "numero": 456,
+        "cep": 58701010,
+        "cidade": "Patos",
+        "estado": "PB",
+        "pais": "Brasil"
+    },
+    "pessoaResponsavel": {
+        "id": 1,
+        "nome": "Sarah",
+        "cpf": 32432423,
+        "telefone": 88995637463,
+        "email": "sarah1@email.com"
+    },
+    "capacidadeRefeicoes": 300,
+    "horarioCafeManha": "7:30 am",
+    "horarioAlmoco": "11:40 am",
+    "horarioJantar": "18:00 pm",
+    "diasFuncionamento": "segunda á sexta"
+}
+```
+### Aluno
+```json
+{
+   "id":"1",
+    "matricula":"10",
+    "nome":"CREIVERSON VIEIRA",
+    "cpf":"365.456.678-30",
+    "endereco": {
+        "id": 1,
+        "rua": "Rua Minds",
+        "numero": 456,
+        "cep": 58701010,
+        "cidade": "Patos",
+        "estado": "PB",
+        "pais": "Brasil"
+    },
+    "curso":"Computacao"
+}
+```
 
 Roteiro das Atividades
 1. Criar os menus e as interfaces de Gerenciamento de Restaurante, Pessoa
