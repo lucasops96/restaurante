@@ -12,7 +12,7 @@ function Sidebar() {
           <ListItemIcon>
             <Home />
           </ListItemIcon>
-          <ListItemText primary="Home" />
+          <ListItemText primary="Restaurantes" />
         </ListItem>
         <ListItem button component={Link} to="/pessoas-responsaveis">
           <ListItemIcon>
