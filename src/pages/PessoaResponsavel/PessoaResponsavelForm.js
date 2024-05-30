@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate  } from 'react-router-dom';
+import { useParams, useNavigate,Link  } from 'react-router-dom';
 import { TextField, Button, Container,Typography } from '@mui/material';
 import axios from 'axios';
 
@@ -66,6 +66,15 @@ function PessoaResponsavelForm(){
                 <TextField label="Telefone" value={telefone} onChange={(e) => setTelefone(e.target.value)} fullWidth margin="normal" />
                 <TextField label="Email" value={email} onChange={(e) => setEmail(e.target.value)} fullWidth margin="normal" />
                 <Button type="submit" variant="contained" color="primary">Salvar</Button>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    component={Link}
+                    to="/pessoas-responsaveis"
+                    style={{ marginLeft: '10px' }}
+                    >
+                    Voltar
+                </Button>
             </form>
         </Container>
     );

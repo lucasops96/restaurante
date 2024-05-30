@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate,Link } from 'react-router-dom';
 import { TextField, Button, Container, Typography } from '@mui/material';
 import axios from 'axios';
 import './EnderecoForm.css'
@@ -104,6 +104,15 @@ function EnderecoForm() {
         <TextField label="Estado" value={estado} onChange={(e) => setEstado(e.target.value)} fullWidth margin="normal" />
         <TextField label="País" value={pais} onChange={(e) => setPais(e.target.value)} fullWidth margin="normal" />
         <Button type="submit" variant="contained" color="primary">Salvar</Button>
+        <Button
+          variant="contained"
+          color="primary"
+          component={Link}
+          to="/enderecos"
+          style={{ marginLeft: '10px' }}
+          >
+          Voltar
+      </Button>
       </form>
     </Container>
   );

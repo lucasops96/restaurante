@@ -134,12 +134,12 @@ function AlunoForm() {
       </form>
       <Button
         variant="contained"
-        color="error"
+        color="primary"
         component={Link}
         to="/alunos"
         style={{ marginTop: '20px' }}
       >
-        Cancelar
+        Voltar
       </Button>
     </Container>
   );
