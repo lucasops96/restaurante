@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Projeto Restaurante para disciplina de programação web
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Para startar o projeto
+npm install
+npm start 
 
-## Available Scripts
+# Especificação do projeto da disciplina de PROG WEB.
+● Restaurante
+○ Id: Integer (Auto-increment)
+○ Nome do Restaurante: String(255);
+○ Endereco: Endereco;
+■ Id: Integer (Auto-increment)
+■ Rua: String (255);
+■ Número: String (8);
+■ CEP: String(14);
+■ Cidade: String (50);
+■ Estado: String (50);
+■ País: String (50);
+○ Pessoa Responsável: Pessoa;
+■ Id: Integer (Auto-increment)
+■ Nome: String(255);
+■ CPF: String(15);
+■ Telefone_whatsapp: String(255);
+■ Email: String(255);
+○ Capacidade de Refeições: Integer;
+○ Horário de atendimento do café da manhã: String(10);
+○ Horário de atendimento do almoço: String(10);
+○ Horário de atendimento do jantar: String(10);
+○ Dias de funcionamento: String(255);
+● Aluno
+○ Id: Integer (Auto-increment)
+○ Matrícula: Integer;
+○ Nome completo: String (255);
+○ CPF: String (13);
+○ Endereço: Endereco;
+○ Curso: String (255);
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Roteiro das Atividades
+1. Criar os menus e as interfaces de Gerenciamento de Restaurante, Pessoa
+Responsável e Endereço baseados no menu e na interface de
+Gerenciamento de Alunos.
+2. Desenvolver as chamadas remotas utilizando o axios e os respectivos
+tratamentos de retorno para o CRUD (Criação, Atualização, Remoção e
+Consulta) completo de Restaurantes, Pessoas Responsáveis, Alunos e
+Endereços.
+3. Adicionar o componente de lista na coluna de endereço da MaterialTable na
+interface de Gerencimento de Restaurantes e Alunos. Representação: id - rua
+(ex.: 1 - Rua do Fullstack)
+4. Adicionar o componente de lista na coluna Pessoa Responsável da
+MaterialTable na interface de Gerencimento de Restaurantes.
+Representação: id - nomeResponsavel (ex.: 1 - Demetrio Mestre)
