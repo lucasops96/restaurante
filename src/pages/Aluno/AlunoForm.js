@@ -26,7 +26,7 @@ function AlunoForm() {
           setNome(aluno.nome);
           setCpf(aluno.cpf);
           setCurso(aluno.curso);
-          setEnderecoId(aluno.endereco.id);
+          setEnderecoId(aluno.endereco);
         } catch (error) {
           console.error('Erro ao buscar o aluno:', error);
         }
@@ -52,9 +52,7 @@ function AlunoForm() {
       matricula,
       nome,
       cpf,
-      endereco: {
-        id: enderecoId
-      },
+      endereco: enderecoId,
       curso
     };
 
@@ -110,14 +108,15 @@ function AlunoForm() {
           margin="normal"
           required
         />
+         <InputLabel>Endereço</InputLabel>
+         {id ? ` ${enderecoId.rua}, ${enderecoId.numero} - ${enderecoId.cidade}, ${enderecoId.estado}, ${enderecoId.pais}` : ''}
         <FormControl fullWidth margin="normal" required>
-          <InputLabel>Endereço</InputLabel>
           <Select
             value={enderecoId}
             onChange={(e) => setEnderecoId(e.target.value)}
           >
             {enderecos.map((endereco) => (
-              <MenuItem key={endereco.id} value={endereco.id}>
+              <MenuItem key={endereco.id} value={endereco}>
                 {endereco.rua}, {endereco.numero} - {endereco.cidade}, {endereco.estado}, {endereco.pais}
               </MenuItem>
             ))}

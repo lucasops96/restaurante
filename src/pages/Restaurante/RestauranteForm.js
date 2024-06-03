@@ -42,8 +42,8 @@ function RestauranteForm() {
           const response = await restApi.get(`/restaurantes/${id}`);
           const restaurante = response.data;
           setNome(restaurante.nome);
-          setEnderecoId(restaurante.endereco.id);
-          setPessoaResponsavelId(restaurante.pessoaResponsavel.id);
+          setEnderecoId(restaurante.endereco);
+          setPessoaResponsavelId(restaurante.pessoaResponsavel);
           setCapacidadeRefeicoes(restaurante.capacidadeRefeicoes);
           setHorarioCafeManha(restaurante.horarioCafeManha);
           setHorarioAlmoco(restaurante.horarioAlmoco);
@@ -64,8 +64,8 @@ function RestauranteForm() {
     event.preventDefault();
     const restaurante = {
       nome,
-      endereco: { id: enderecoId },
-      pessoaResponsavel: { id: pessoaResponsavelId },
+      endereco: enderecoId,
+      pessoaResponsavel:  pessoaResponsavelId ,
       capacidadeRefeicoes,
       horarioCafeManha,
       horarioAlmoco,
@@ -102,13 +102,14 @@ function RestauranteForm() {
           margin="normal"
         />
         <InputLabel>Endereço</InputLabel>
+        {id ? ` ${enderecoId.rua}, ${enderecoId.numero} - ${enderecoId.cidade}, ${enderecoId.estado}, ${enderecoId.pais}` : ''}
         <FormControl fullWidth margin="normal" required>
           <Select
             value={enderecoId}
             onChange={(e) => setEnderecoId(e.target.value)}
           >
             {enderecos.map((endereco) => (
-              <MenuItem key={endereco.id} value={endereco.id}>
+              <MenuItem key={endereco.id} value={endereco}>
                 {endereco.rua}, {endereco.numero} - {endereco.cidade}
               </MenuItem>
             ))}
@@ -116,13 +117,14 @@ function RestauranteForm() {
           <FormHelperText>Selecione o endereço do restaurante</FormHelperText>
         </FormControl>
         <InputLabel>Pessoa Responsável</InputLabel>
+        {id ? ` ${pessoaResponsavelId.nome} (${pessoaResponsavelId.email})` : ''}
         <FormControl fullWidth margin="normal" required>
           <Select
             value={pessoaResponsavelId}
             onChange={(e) => setPessoaResponsavelId(e.target.value)}
           >
             {pessoasResponsaveis.map((pessoa) => (
-              <MenuItem key={pessoa.id} value={pessoa.id}>
+              <MenuItem key={pessoa.id} value={pessoa}>
                 {pessoa.nome} ({pessoa.email})
               </MenuItem>
             ))}
