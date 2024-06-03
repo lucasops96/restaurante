@@ -1,7 +1,8 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Container, Typography, Button } from '@mui/material';
-import axios from 'axios';
+import { restApi } from '../../services/api';
+
 
 function ExcluirPessoaResponsavel(){
     const { id , nome } = useParams();
@@ -9,7 +10,7 @@ function ExcluirPessoaResponsavel(){
 
     const handleExcluirPessoaResponsavel = async ()=>{
         try {
-            await axios.delete(`https://demo6292057.mockable.io/excluir/aluno/`);
+            await restApi.delete(`/excluir/aluno/`);
             console.log('Pessoa Responsável excluído com sucesso',id);
             // Redirecionar de volta para a lista de alunos após excluir
             navigate('/pessoas-responsaveis');

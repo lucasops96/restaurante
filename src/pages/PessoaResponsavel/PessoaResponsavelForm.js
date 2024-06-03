@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate,Link  } from 'react-router-dom';
 import { TextField, Button, Container,Typography } from '@mui/material';
-import axios from 'axios';
+import { restApi } from '../../services/api';
 
 function PessoaResponsavelForm(){
     const { id } = useParams();
@@ -16,7 +16,7 @@ function PessoaResponsavelForm(){
         const fetchPessoaResponsavel = async () => {
             if (id) {
               try {
-                const response = await axios.get(`https://demo6292057.mockable.io/pessoas/${id}`);
+                const response = await restApi.get(`/pessoas/${id}`);
                 const pessoaResponsavel = response.data;
                 setNome(pessoaResponsavel.nome);
                 setCpf(pessoaResponsavel.cpf);
@@ -42,11 +42,11 @@ function PessoaResponsavelForm(){
     
         try {
             if (id) {
-                const response = await axios.put(`https://demo6292057.mockable.io/editar/aluno/`, PessoaResponsavelAtualizado);
+                const response = await restApi.put(`/pessoas/${id}`, PessoaResponsavelAtualizado);
                 console.log('Pessoa Responsável editado:', response.data , PessoaResponsavelAtualizado);
             } else {
                 // Se não tiver um id, adicionar uma nova pessoa responsavel
-                const response = await axios.post('https://demo6292057.mockable.io/adicionar/aluno/', PessoaResponsavelAtualizado);
+                const response = await restApi.post('/pessoas', PessoaResponsavelAtualizado);
                 console.log('Pessoa Responsável adicionado:', response.data ,PessoaResponsavelAtualizado);
             }
             navigate('/pessoas-responsaveis'); 

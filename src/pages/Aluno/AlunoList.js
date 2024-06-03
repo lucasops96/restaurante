@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import './AlunoList.css'; // Importar o arquivo CSS
+import { restApi } from '../../services/api';
 
 function AlunoList() {
     const [alunos, setAlunos] = useState([]);
@@ -11,7 +11,7 @@ function AlunoList() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://demo6292057.mockable.io/alunos/');
+                const response = await restApi.get('/alunos');
                 setAlunos(response.data);
             } catch (error) {
                 console.error('Erro ao buscar os dados:', error);

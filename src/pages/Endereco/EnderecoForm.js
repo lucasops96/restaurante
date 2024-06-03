@@ -3,6 +3,9 @@ import { useParams, useNavigate,Link } from 'react-router-dom';
 import { TextField, Button, Container, Typography } from '@mui/material';
 import axios from 'axios';
 import './EnderecoForm.css'
+import { restApi} from '../../services/api';
+
+
 
 function EnderecoForm() {
   const { id } = useParams();
@@ -22,7 +25,7 @@ function EnderecoForm() {
     const fetchEndereco = async () =>{
       if (id) {
        try {
-        const response = await axios.get(`https://demo6292057.mockable.io/enderecos/1`)
+        const response = await restApi.get(`/enderecos/${id}`)
         const endereco = response.data;
           setRua(endereco.rua);
           setNumero(endereco.numero);
@@ -53,10 +56,10 @@ function EnderecoForm() {
 
     try {
       if (id) {
-        //await axios.put(`https://demo6292057.mockable.io/editar/endereco/${id}`, enderecoAtualizado);
+        await restApi.put(`/enderecos/${id}`, enderecoAtualizado);
         console.log('Endereço editado:', enderecoAtualizado);
       } else {
-        //await axios.post('https://demo6292057.mockable.io/adicionar/endereco/', enderecoAtualizado);
+        await restApi.post('/enderecos', enderecoAtualizado);
         console.log('Endereço adicionado:', enderecoAtualizado);
       }
       navigate('/enderecos');

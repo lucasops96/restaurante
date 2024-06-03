@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
 import { Container, Paper, Typography, TextField, Button, Select, MenuItem, FormControl, InputLabel, FormHelperText } from '@mui/material';
+import { restApi } from '../../services/api';
 
 function RestauranteForm() {
   const { id } = useParams();
@@ -20,7 +20,7 @@ function RestauranteForm() {
   useEffect(() => {
     const fetchEnderecos = async () => {
       try {
-        const response = await axios.get('https://demo6292057.mockable.io/enderecos/');
+        const response = await restApi.get('/enderecos');
         setEnderecos(response.data);
       } catch (error) {
         console.error('Erro ao buscar os endereços:', error);
@@ -29,7 +29,7 @@ function RestauranteForm() {
 
     const fetchPessoasResponsaveis = async () => {
       try {
-        const response = await axios.get('https://demo6292057.mockable.io/pessoas/');
+        const response = await restApi.get('/pessoas');
         setPessoasResponsaveis(response.data);
       } catch (error) {
         console.error('Erro ao buscar as pessoas responsáveis:', error);
@@ -39,7 +39,7 @@ function RestauranteForm() {
     const fetchRestaurante = async () => {
       if (id) {
         try {
-          const response = await axios.get(`https://demo6292057.mockable.io/restaurantes/${id}`);
+          const response = await restApi.get(`/restaurantes/${id}`);
           const restaurante = response.data;
           setNome(restaurante.nome);
           setEnderecoId(restaurante.endereco.id);
@@ -75,10 +75,10 @@ function RestauranteForm() {
 
     try {
       if (id) {
-        //await axios.put(`https://demo6292057.mockable.io/restaurantes/${id}`, restaurante);
+        await restApi.put(`/restaurantes/${id}`, restaurante);
         console.log('Restaurante Editado',restaurante)
       } else {
-        //await axios.post('https://demo6292057.mockable.io/restaurantes', restaurante);
+        await restApi.post('/restaurantes', restaurante);
         console.log('Restaurante Criado',restaurante)
       }
       navigate('/');

@@ -1,7 +1,8 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Container, Typography, Button } from '@mui/material';
-import axios from 'axios';
+import { restApi } from '../../services/api';
+
 
 
 function ExcluirEndereco() {
@@ -10,7 +11,7 @@ function ExcluirEndereco() {
 
   const handleExcluirEndereco = async () => {
     try {
-      //await axios.delete(`https://demo6292057.mockable.io/excluir/endereco/${id}`);
+      await restApi.delete(`/enderecos/${id}`);
       console.log('Endereço excluído com sucesso',id);
       navigate('/enderecos');
     } catch (error) {

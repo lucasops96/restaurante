@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { TextField, Button, Container, Typography, FormControl, InputLabel, Select, MenuItem, Paper } from '@mui/material';
-import axios from 'axios';
+import { restApi } from '../../services/api';
+
 
 function AlunoForm() {
   const { id } = useParams();
@@ -19,7 +20,7 @@ function AlunoForm() {
     const fetchAluno = async () => {
       if (id) {
         try {
-          const response = await axios.get(`https://demo6292057.mockable.io/alunos/${id}`);
+          const response = await restApi.get(`/alunos/${id}`);
           const aluno = response.data;
           setMatricula(aluno.matricula);
           setNome(aluno.nome);
@@ -34,7 +35,7 @@ function AlunoForm() {
 
     const fetchEnderecos = async () => {
       try {
-        const response = await axios.get('https://demo6292057.mockable.io/enderecos/');
+        const response = await restApi.get('/enderecos');
         setEnderecos(response.data);
       } catch (error) {
         console.error('Erro ao buscar endereços:', error);
@@ -59,11 +60,10 @@ function AlunoForm() {
 
     try {
       if (id) {
-        //const response = await axios.put(`https://demo6292057.mockable.io/editar/aluno/${id}`, alunoAtualizado);
-        const response = await axios.put(`https://demo6292057.mockable.io/editar/aluno/`, alunoAtualizado);
+        const response = await restApi.put(`/alunos/${id}`, alunoAtualizado);
         console.log('Aluno editado:', response.data);
       } else {
-        const response = await axios.post('https://demo6292057.mockable.io/adicionar/aluno/', alunoAtualizado);
+        const response = await restApi.post('/alunos', alunoAtualizado);
         console.log('Aluno adicionado:', response.data, alunoAtualizado);
       }
       navigate('/alunos');

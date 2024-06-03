@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import './EnderecoList.css';
+import { restApi } from '../../services/api';
 
 function EnderecoList() {
   const [enderecos, setEnderecos] = useState([]);
@@ -11,7 +11,7 @@ function EnderecoList() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://demo6292057.mockable.io/enderecos/');
+        const response = await restApi.get('/enderecos');
         setEnderecos(response.data);
       } catch (error) {
         console.error('Erro ao buscar os dados:', error);

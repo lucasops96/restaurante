@@ -1,7 +1,7 @@
 import React from 'react';
-import { useNavigate, useParams, useLocation,Link } from 'react-router-dom';
+import { useNavigate, useParams,Link } from 'react-router-dom';
 import { Container, Paper, Typography, Button } from '@mui/material';
-import axios from 'axios';
+import { restApi } from '../../services/api';
 
 function ExcluirRestaurante() {
   const { id, nome } = useParams();
@@ -11,7 +11,7 @@ function ExcluirRestaurante() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`https://demo6292057.mockable.io/restaurantes/${id}`);
+      await restApi.delete(`/restaurantes/${id}`);
       navigate('/');
     } catch (error) {
       console.error('Erro ao excluir o restaurante:', error);

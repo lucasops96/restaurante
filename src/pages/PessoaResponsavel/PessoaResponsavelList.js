@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@mui/material';
 import { Link , useNavigate} from 'react-router-dom';
 import './PessoaResponsavelList.css'
+import { restApi } from '../../services/api';
 
 function PessoaResponsavelList(){
     const [pessoasResponsaveis,setPessoasResponsaveis] = useState([]);
@@ -11,7 +11,7 @@ function PessoaResponsavelList(){
     useEffect(()=>{
         const fetchData = async ()=>{
             try {
-                const response = await axios.get('https://demo6292057.mockable.io/pessoas/');
+                const response = await restApi.get('/pessoas');
                 setPessoasResponsaveis(response.data);
             } catch (error) {
                 console.error('Erro ao buscar os dados:', error);
